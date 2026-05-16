@@ -1,0 +1,13 @@
+services:
+  python-ruby-gpt:
+    build: .
+    container_name: python-ruby-gpt
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      # Optional: point this at your own self-hosted SearXNG instance for best reliability.
+      # - SEARXNG_URL=http://searxng:8080
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

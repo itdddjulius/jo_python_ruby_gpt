@@ -1,0 +1,13 @@
+services:
+  python-ruby-gpt:
+    build: .
+    container_name: python-ruby-gpt-vercel-ready
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Optional: use your own self-hosted SearXNG for reliable DEEP-DIVE search.
+      # - SEARXNG_URL=http://searxng:8080
+    restart: unless-stopped
